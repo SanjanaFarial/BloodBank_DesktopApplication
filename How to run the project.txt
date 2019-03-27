@@ -1,0 +1,9 @@
+Softwares: Netbeans IDE, Microsoft SQL Server 2014
+
+Steps:
+1) After installation run the tables on the MSSQL server using the 
+   username: sa and password: 12345
+
+2) Then insert data to the tables.
+
+3) Open netbeans and open the project BloodBank. Run the project. 

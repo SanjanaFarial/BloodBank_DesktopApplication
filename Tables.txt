@@ -1,0 +1,73 @@
+Use BloodBank
+
+
+create table donor
+( 
+  DonorName varchar(100),
+  DonorID int identity(1,1) not null primary key,
+  DonorGender varchar(10),
+  DonorBloodGroup varchar(5),
+  DonorAddress varchar(2000),
+  DonorArea varchar(100),
+  DonorPhoneNumber int,
+  Eligibility varchar(10)
+  )
+
+ 
+  
+  create table BloodInventory
+  ( 
+    DonorID int foreign key references donor(DonorID),
+    BagNumber int identity(4000,1)not null primary key,
+    QuantityAvailable int,
+    RedBloodCells varchar(100),
+    WhiteBloodCells varchar(100),
+    Platelets varchar(100),
+    Plasma varchar(100),
+    Heamoglobin varchar(100)
+    ) 
+
+	
+
+      Create table DonationDetails
+      ( 
+	    
+        DonationNumber int identity(20000,1) not null primary key,
+		BagNumber int foreign key references BloodInventory(BagNumber),
+        Hospital varchar(1000),
+        CollectionDate date,
+        GivingDate date,
+        GivenAmount int
+        )
+        
+     create table Recipient
+    ( 
+	  RecipientID int identity(2000,1) not null primary key,
+      RecipientName varchar(100),
+	  RecipientAge int,
+      RecipientGender varchar(10),
+      RecipientBloodGroup varchar(10),
+      RecipientAddress varchar(2000),
+      RecipientArea varchar(500),
+      RecipientPhoneNumber int,
+      DonationNumber int foreign key references DonationDetails(DonationNumber)
+      )
+
+	 
+      
+      Create table Employee
+      ( 
+	    
+        EmployeeID int identity(7000,1) not null,
+		EmployeeName varchar(100),
+        EmployeeAddress varchar(1000),
+        EmployeeSalary int,
+        EmployeeDesignation varchar(100),
+		EmployeePhoneNumber int,
+
+        )
+select * from donor
+select * from Employee
+select * from BloodInventory
+select * from DonationDetails
+select * from Recipient
